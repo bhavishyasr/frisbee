@@ -9,6 +9,9 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { useEffect } from "react";
+import { wireBuddy } from "@/lib/buddy/brain";
+import { emit } from "@/lib/buddy/bus";
 
 function NotFoundComponent() {
   return (
@@ -109,6 +112,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const dispose = wireBuddy();
+    emit({ type: "boot" });
+    return dispose;
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -1,11 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { DeviceShell } from "@/components/DeviceShell";
 import { DeviceNav } from "@/components/DeviceNav";
-import { Mascot, type MascotMood } from "@/components/Mascot";
+import { Mascot } from "@/components/Mascot";
 import { submitMessage, weekStartOf } from "@/lib/yours/engine";
 import { allMessages } from "@/lib/yours/vault";
 import type { MessageRow } from "@/lib/yours/types";
+import { emit } from "@/lib/buddy/bus";
+import { reactToFirstMessage, reactToMessage } from "@/lib/buddy/brain";
+import { VOICE, pick } from "@/lib/buddy/voice";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,11 +22,17 @@ export const Route = createFileRoute("/")({
 
 function TodayPage() {
   const [text, setText] = useState("");
-  const [mood, setMood] = useState<MascotMood>("neutral");
-  const [last, setLast] = useState<{ p: number; x: number[] } | null>(null);
-  const [todayMsgs, setTodayMsgs] = useState<MessageRow[]>([]);
+  const [last, setLast] = useState<{ p: number; x: [number, number, number, number] } | null>(null);
+  const [allMsgs, setAllMsgs] = useState<MessageRow[]>([]);
   const [busy, setBusy] = useState(false);
   const taRef = useRef<HTMLTextAreaElement>(null);
+  const placeholder = useMemo(() => pick(VOICE.empty_input), []);
+
+  const todayMsgs = useMemo(() => {
+    const ws = weekStartOf(Date.now());
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    return allMsgs.filter((m) => m.weekStart === ws && m.ts >= today.getTime());
+  }, [allMsgs]);
 
   useEffect(() => {
     void refresh();
@@ -31,28 +40,24 @@ function TodayPage() {
   }, []);
 
   async function refresh() {
-    const all = await allMessages();
-    const ws = weekStartOf(Date.now());
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    setTodayMsgs(
-      all.filter((m) => m.weekStart === ws && m.ts >= today.getTime()),
-    );
+    setAllMsgs(await allMessages());
   }
 
   async function onSubmit() {
     if (!text.trim() || busy) return;
     setBusy(true);
-    setMood("thinking");
     try {
+      const isFirstEver = allMsgs.length === 0;
       const r = await submitMessage(text.trim());
-      setLast({ p: r.p, x: r.x });
-      setMood(r.p >= 0.5 ? "proud" : "sheepish");
+      setLast({ p: r.p, x: r.x as [number, number, number, number] });
+      emit({ type: "message:dropped", text: text.trim(), isFirstEver });
+      if (isFirstEver) reactToFirstMessage(r.x as [number, number, number, number]);
+      else reactToMessage(r.x as [number, number, number, number]);
       setText("");
       await refresh();
+      setTimeout(() => taRef.current?.focus(), 0);
     } finally {
       setBusy(false);
-      setTimeout(() => setMood("neutral"), 2200);
     }
   }
 
@@ -61,7 +66,7 @@ function TodayPage() {
       <h1 className="sr-only">Yours — Today</h1>
       <DeviceShell label="BIP-01 // TODAY" status="LISTENING">
         <div className="flex items-start justify-between gap-4 mb-5">
-          <Mascot mood={mood} size={84} />
+          <Mascot size={84} />
           <div className="text-right font-mono text-[10px] text-screen-ink/70 uppercase">
             <p>{new Date().toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" })}</p>
             <p className="mt-1">today: {todayMsgs.length} msg{todayMsgs.length === 1 ? "" : "s"}</p>
@@ -87,7 +92,7 @@ function TodayPage() {
             }
           }}
           rows={6}
-          placeholder="bro why did I spend 4 hours on youtube again..."
+          placeholder={placeholder}
           className="w-full bg-transparent border-none focus:ring-0 focus:outline-none text-xl sm:text-2xl font-medium text-screen-ink placeholder:text-screen-ink/30 resize-none leading-snug"
         />
 
