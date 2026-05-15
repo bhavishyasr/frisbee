@@ -213,3 +213,12 @@ function Section({ title, children }: { title: string; children: React.ReactNode
     </section>
   );
 }
+
+function ScoreCell({ label, n, accent }: { label: string; n: number; accent?: boolean }) {
+  return (
+    <div className={accent ? "bg-action/40 rounded-lg py-2" : "bg-white/40 rounded-lg py-2"}>
+      <p className="font-display text-2xl font-black text-screen-ink leading-none">{n}</p>
+      <p className="font-mono text-[9px] uppercase tracking-widest text-screen-ink/70 mt-1">{label}</p>
+    </div>
+  );
+}
