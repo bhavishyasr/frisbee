@@ -92,24 +92,32 @@ export async function allWeeks(): Promise<WeekRow[]> {
 export async function getModel(): Promise<ModelState> {
   const db = await getDB();
   const cur = await db.get("model", "current");
-  return cur ?? { ...freshModel(), id: "current" };
+  if (cur) {
+    const { id: _id, ...rest } = cur;
+    return rest as ModelState;
+  }
+  return freshModel();
 }
 
 export async function putModel(m: ModelState): Promise<void> {
   const db = await getDB();
-  await db.put("model", { ...m, id: "current" });
+  await db.put("model", { ...m, id: "current" } as ModelState & { id: "current" });
 }
 
 // ---------- Personal corpus ----------
 export async function getCorpus(): Promise<PersonalCorpus> {
   const db = await getDB();
   const cur = await db.get("corpus", "personal");
-  return cur ?? { ...EMPTY_PERSONAL, id: "personal" };
+  if (cur) {
+    const { id: _id, ...rest } = cur;
+    return rest as PersonalCorpus;
+  }
+  return EMPTY_PERSONAL;
 }
 
 export async function putCorpus(c: PersonalCorpus): Promise<void> {
   const db = await getDB();
-  await db.put("corpus", { ...c, id: "personal" });
+  await db.put("corpus", { ...c, id: "personal" } as PersonalCorpus & { id: "personal" });
 }
 
 // ---------- Vocab additions ----------
