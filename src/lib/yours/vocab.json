@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "clusters": {
+    "drift": [
+      "procrastinated", "scrolled", "wasted", "avoided", "slacked", "stalled",
+      "doomscrolled", "tiktok", "youtube", "instagram", "reddit", "twitter",
+      "binged", "rewatched", "snoozed", "overslept", "skipped", "ditched",
+      "lazy", "stuck", "blanked", "zoned", "spaced", "drifted",
+      "delayed", "postponed", "ghosted", "ignored", "abandoned", "quit",
+      "dropped", "forgot", "missed", "lost", "fell", "slipped",
+      "couldnt", "didnt", "wouldnt", "nothing", "again", "still", "literally"
+    ],
+    "align": [
+      "focused", "finished", "shipped", "crushed", "nailed", "won",
+      "studied", "practiced", "wrote", "built", "made", "completed",
+      "proud", "accomplished", "productive", "locked", "deep", "flowed",
+      "grinded", "worked", "trained", "ran", "lifted", "moved",
+      "early", "ontime", "ready", "prepared", "organized", "cleaned",
+      "started", "began", "showed", "kept", "stayed", "did",
+      "actually", "finally", "kachow", "w", "win", "clutch", "cooked"
+    ],
+    "excuse": [
+      "tired", "exhausted", "sleepy", "drained", "burnt", "wiped",
+      "tomorrow", "later", "soon", "eventually", "someday", "afterward",
+      "busy", "swamped", "overwhelmed", "stressed", "anxious", "worried",
+      "forgot", "blanked", "remembered", "meant", "wanted", "tried",
+      "but", "though", "kinda", "sorta", "almost", "nearly",
+      "supposed", "should", "could", "would", "might", "maybe",
+      "boring", "hard", "confusing", "complicated", "annoying", "ugh"
+    ],
+    "energy": [
+      "motivated", "ready", "pumped", "inspired", "excited", "hyped",
+      "energized", "fresh", "alive", "awake", "alert", "sharp",
+      "happy", "good", "great", "amazing", "awesome", "fire",
+      "vibes", "vibing", "lit", "stoked", "thrilled", "buzzing",
+      "love", "loved", "loving", "enjoyed", "fun", "joy",
+      "grateful", "blessed", "lucky", "smiling", "laughed", "lol",
+      "cant", "wait", "tomorrow", "next", "going", "doing"
+    ]
+  }
+}
