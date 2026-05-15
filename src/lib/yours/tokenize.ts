@@ -9,6 +9,6 @@ const WORD_RE = /[a-z0-9][a-z0-9']*[a-z0-9]|[a-z0-9]/g;
 
 export function tokenize(text: string): string[] {
   if (!text) return [];
-  const lower = text.toLowerCase().replace(/[''']/g, "'");
+  const lower = text.toLowerCase().replace(/[\u2018\u2019\u02BC]/g, "'");
   return lower.match(WORD_RE) ?? [];
 }
