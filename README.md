@@ -1,4 +1,6 @@
-# Personal Intelligence Machine- PIM
+# FRISBEE - your personal intelligence machine
+
+Functional Real-time Intelligence for Spotting Blissfull Everyday Actions
 
 A little buddy that learns *you* from your own words. Local-only. No server, no account, no telemetry. Your data lives in your browser's IndexedDB and nowhere else.
 
