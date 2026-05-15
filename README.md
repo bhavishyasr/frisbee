@@ -1,4 +1,4 @@
-# PERSONAL INTELLIGENCE MACHINE - PIM
+# Personal Intelligence Machine- PIM
 
 A little buddy that learns *you* from your own words. Local-only. No server, no account, no telemetry. Your data lives in your browser's IndexedDB and nowhere else.
 
