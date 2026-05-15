@@ -1,41 +1,74 @@
 {
-  "version": 1,
-  "clusters": {
-    "drift": [
-      "procrastinated", "scrolled", "wasted", "avoided", "slacked", "stalled",
-      "doomscrolled", "tiktok", "youtube", "instagram", "reddit", "twitter",
-      "binged", "rewatched", "snoozed", "overslept", "skipped", "ditched",
-      "lazy", "stuck", "blanked", "zoned", "spaced", "drifted",
-      "delayed", "postponed", "ghosted", "ignored", "abandoned", "quit",
-      "dropped", "forgot", "missed", "lost", "fell", "slipped",
-      "couldnt", "didnt", "wouldnt", "nothing", "again", "still", "literally"
-    ],
-    "align": [
-      "focused", "finished", "shipped", "crushed", "nailed", "won",
-      "studied", "practiced", "wrote", "built", "made", "completed",
-      "proud", "accomplished", "productive", "locked", "deep", "flowed",
-      "grinded", "worked", "trained", "ran", "lifted", "moved",
-      "early", "ontime", "ready", "prepared", "organized", "cleaned",
-      "started", "began", "showed", "kept", "stayed", "did",
-      "actually", "finally", "kachow", "w", "win", "clutch", "cooked"
-    ],
-    "excuse": [
-      "tired", "exhausted", "sleepy", "drained", "burnt", "wiped",
-      "tomorrow", "later", "soon", "eventually", "someday", "afterward",
-      "busy", "swamped", "overwhelmed", "stressed", "anxious", "worried",
-      "forgot", "blanked", "remembered", "meant", "wanted", "tried",
-      "but", "though", "kinda", "sorta", "almost", "nearly",
-      "supposed", "should", "could", "would", "might", "maybe",
-      "boring", "hard", "confusing", "complicated", "annoying", "ugh"
-    ],
-    "energy": [
-      "motivated", "ready", "pumped", "inspired", "excited", "hyped",
-      "energized", "fresh", "alive", "awake", "alert", "sharp",
-      "happy", "good", "great", "amazing", "awesome", "fire",
-      "vibes", "vibing", "lit", "stoked", "thrilled", "buzzing",
-      "love", "loved", "loving", "enjoyed", "fun", "joy",
-      "grateful", "blessed", "lucky", "smiling", "laughed", "lol",
-      "cant", "wait", "tomorrow", "next", "going", "doing"
-    ]
+  "_comment": "Yours — hand-crafted vocab. 4 semantic clusters. bg_df calibrated to N_BG=500. Apostrophe forms intentional (tokenizer preserves them).",
+  "drift": [
+    "procrastinated", "scrolled", "wasted", "avoided", "slacked", "stalled",
+    "doomscrolled", "tiktok", "youtube", "instagram", "reddit", "twitter",
+    "binged", "rewatched", "snoozed", "overslept", "skipped", "ditched",
+    "lazy", "stuck", "blanked", "zoned", "spaced", "drifted",
+    "delayed", "postponed", "ghosted", "ignored", "abandoned", "quit",
+    "dropped", "forgot", "missed", "lost", "fell", "slipped",
+    "couldn't", "didn't", "wouldn't", "nothing", "again", "still", "literally"
+  ],
+  "align": [
+    "focused", "finished", "shipped", "crushed", "nailed", "won",
+    "studied", "practiced", "wrote", "built", "made", "completed",
+    "proud", "accomplished", "productive", "locked", "deep", "flowed",
+    "grinded", "worked", "trained", "ran", "lifted", "moved",
+    "early", "on-time", "ready", "prepared", "organized", "cleaned",
+    "started", "began", "showed", "kept", "stayed", "did",
+    "actually", "finally", "kachow", "w", "win", "clutch", "cooked",
+    "dialed", "crushing"
+  ],
+  "excuse": [
+    "tired", "exhausted", "sleepy", "drained", "burnt", "wiped",
+    "tomorrow", "later", "soon", "eventually", "someday", "afterward",
+    "busy", "swamped", "overwhelmed", "stressed", "anxious", "worried",
+    "remembered", "meant", "wanted", "tried",
+    "but", "though", "kinda", "sorta", "almost", "nearly",
+    "supposed", "should", "could", "would", "might", "maybe",
+    "boring", "hard", "confusing", "complicated", "annoying", "ugh",
+    "couldn't", "didn't", "wouldn't"
+  ],
+  "energy": [
+    "motivated", "pumped", "inspired", "excited", "hyped",
+    "energized", "fresh", "alive", "awake", "alert", "sharp",
+    "happy", "good", "great", "amazing", "awesome", "fire",
+    "vibes", "vibing", "lit", "stoked", "thrilled", "buzzing",
+    "love", "loved", "loving", "enjoyed", "fun", "joy",
+    "grateful", "blessed", "lucky", "smiling", "laughed", "lol",
+    "let's", "yes", "yeah", "totally", "definitely", "absolutely",
+    "locked", "dialed", "crushing", "blazing", "flying"
+  ],
+  "bg_df": {
+    "the": 482, "a": 450, "and": 430, "to": 419, "of": 405, "in": 371,
+    "i": 360, "is": 340, "it": 330, "you": 319, "that": 302, "was": 289,
+    "for": 275, "on": 261, "are": 250, "with": 241, "as": 230, "but": 222,
+    "be": 215, "this": 209, "have": 200, "from": 192, "or": 181, "had": 171,
+    "by": 164, "not": 160, "what": 152, "all": 149, "were": 143, "we": 140,
+    "when": 132, "your": 129, "can": 124, "said": 119, "there": 114, "use": 110,
+    "an": 105, "each": 100, "which": 98, "she": 94, "do": 91, "how": 89,
+    "their": 86, "if": 82, "will": 80, "up": 77, "other": 73, "about": 71,
+    "out": 69, "many": 65, "then": 62, "them": 60, "these": 58, "so": 56,
+    "some": 53, "her": 51, "would": 49, "make": 47, "like": 44, "him": 42,
+    "into": 41, "time": 40, "has": 39, "look": 37, "two": 36, "more": 34,
+    "go": 33, "see": 32, "no": 31, "way": 30, "could": 29, "my": 28,
+    "than": 27, "first": 26, "been": 25, "call": 23, "who": 22, "its": 22,
+    "now": 21, "find": 20, "long": 20, "down": 19, "day": 18, "did": 17,
+    "get": 16, "come": 14, "made": 13, "may": 12, "part": 11, "actually": 10,
+    "literally": 9, "really": 8, "just": 8, "kind": 7, "school": 7, "work": 7,
+    "study": 6, "today": 5, "yesterday": 5, "tomorrow": 5, "again": 4, "still": 4,
+    "tired": 4, "happy": 4, "sad": 3, "stressed": 3, "busy": 3, "focused": 3,
+    "lazy": 2, "fun": 2, "boring": 2, "love": 2, "hate": 1, "good": 9,
+    "bad": 5, "fine": 3, "great": 3, "bro": 1, "lol": 1, "ngl": 1,
+    "fr": 1, "lowkey": 1, "highkey": 1, "vibes": 1, "fire": 1, "lit": 1,
+    "kachow": 1, "w": 1, "l": 1, "didn't": 4, "couldn't": 2,
+    "wouldn't": 2, "scrolled": 1, "watched": 4, "phone": 3, "screen": 2, "bed": 2,
+    "sleep": 4, "wake": 2, "morning": 4, "night": 4, "homework": 2, "test": 3,
+    "math": 2, "english": 1, "class": 3, "teacher": 2, "friend": 3, "friends": 2,
+    "mom": 2, "dad": 2, "family": 2, "house": 2, "room": 2, "music": 2,
+    "movie": 1, "game": 2, "play": 2, "playing": 2, "started": 3, "finished": 2,
+    "tried": 2, "want": 4, "wanted": 2, "need": 3, "needed": 1, "feel": 3,
+    "feeling": 2, "felt": 2, "think": 4, "thought": 2, "know": 3, "knew": 1,
+    "let's": 3, "yes": 8, "yeah": 3, "totally": 2, "definitely": 4
   }
 }

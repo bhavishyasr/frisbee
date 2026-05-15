@@ -1,12 +1,14 @@
-// Lowercase, strip punctuation (keep apostrophes collapsed), split on whitespace.
-// Intentionally NO stopword removal — "actually", "literally", "bro", "still"
-// are signal in teen voice.
+// Apostrophe-preserving tokenizer.
+// Mirrors collect.py: lowercase, keep apostrophes INSIDE words ("didn't", "let's"),
+// strip surrounding punctuation, split on whitespace.
+//
+// Why: contractions are signal. "didn't" lives in `excuse`, "let's" lives in `energy`.
+// Collapsing them ("didnt") loses the apostrophe variant of the same human voice.
+
+const WORD_RE = /[a-z0-9][a-z0-9']*[a-z0-9]|[a-z0-9]/g;
+
 export function tokenize(text: string): string[] {
   if (!text) return [];
-  return text
-    .toLowerCase()
-    .replace(/['']/g, "") // collapse contractions: didn't -> didnt
-    .replace(/[^a-z0-9\s]+/g, " ")
-    .split(/\s+/)
-    .filter(Boolean);
+  const lower = text.toLowerCase().replace(/[\u2018\u2019\u02BC]/g, "'");
+  return lower.match(WORD_RE) ?? [];
 }
