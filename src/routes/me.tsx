@@ -16,6 +16,8 @@ import {
 } from "@/lib/yours/vault";
 import { confidence, wordDeltas } from "@/lib/yours/scientist";
 import type { Hypothesis, MessageRow, VocabAddition, WeekRow } from "@/lib/yours/types";
+import { emit } from "@/lib/buddy/bus";
+import { useMemo } from "react";
 
 export const Route = createFileRoute("/me")({
   head: () => ({
@@ -60,10 +62,25 @@ function MePage() {
   }
 
   async function onWipe() {
-    if (!confirm("Wipe ALL local data? This cannot be undone.")) return;
+    if (!confirm("wipe ALL local data? can't undo.")) return;
     await wipeAll();
+    emit({ type: "vault:wiped" });
     await load();
   }
+
+  const score = useMemo(() => {
+    let you = 0, buddy = 0, both = 0, neither = 0;
+    for (const w of weeks) {
+      if (w.truth === undefined) continue;
+      const yr = w.selfPrediction === w.truth;
+      const mr = w.modelRounded === w.truth;
+      if (yr && mr) both++;
+      else if (yr) you++;
+      else if (mr) buddy++;
+      else neither++;
+    }
+    return { you, buddy, both, neither };
+  }, [weeks]);
 
   async function acceptCandidate(word: string, direction: "align" | "drift") {
     await addVocab({ word, cluster: direction, addedAt: Date.now() });
@@ -84,13 +101,26 @@ function MePage() {
       <h1 className="sr-only">Yours — Me</h1>
       <DeviceShell label="BIP-01 // ME" status="VAULT">
         <div className="flex items-center gap-4 mb-5">
-          <Mascot mood="neutral" size={72} />
+          <Mascot size={72} />
           <div>
             <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/70">your vault</p>
             <p className="font-display text-lg font-bold text-screen-ink">
               {msgs.length} messages · {weeks.filter((w) => w.truth !== undefined).length} labeled weeks
             </p>
           </div>
+        </div>
+
+        <div className="bg-screen-ink/5 rounded-xl p-4 mb-5">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/70 mb-2">the running tally</p>
+          <div className="grid grid-cols-4 gap-2 text-center">
+            <ScoreCell label="you" n={score.you} accent />
+            <ScoreCell label="buddy" n={score.buddy} />
+            <ScoreCell label="both" n={score.both} />
+            <ScoreCell label="neither" n={score.neither} />
+          </div>
+          {score.you === 0 && score.buddy === 0 && score.both === 0 && score.neither === 0 && (
+            <p className="font-mono text-xs text-screen-ink/60 mt-3 text-center">no duels yet. settle one on /week.</p>
+          )}
         </div>
 
         <Section title="Vocabulary candidates">
