@@ -124,7 +124,7 @@ function TodayPage() {
       <DeviceNav />
 
       <p className="text-center text-xs font-mono text-muted-foreground max-w-md mx-auto">
-        Yours is a personal intelligence machine. It learns YOUR words from your own messages.
+        FRISBEE is a personal intelligence machine. It learns YOUR words from your own messages.
         Nothing leaves this browser. <Link to="/lab" className="underline">See the math</Link>.
       </p>
     </main>
