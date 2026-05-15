@@ -23,6 +23,11 @@ Open http://localhost:5173
 bun run build      # production build
 bun run preview    # serve the build locally
 ```
+## Alternatively
+
+```bash
+bunx wrangler dev
+```
 
 ## Stack
 
