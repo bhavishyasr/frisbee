@@ -29,7 +29,8 @@ export function on(type: BuddyEventType | "*", fn: Handler): () => void {
     subs.set(type, set);
   }
   set.add(fn);
-  return () => set!.delete(fn);
+  // Safer disposer: re-resolve from the map so a future Set swap won't silently leak.
+  return () => subs.get(type)?.delete(fn);
 }
 
 export function emit(event: BuddyEvent): void {
