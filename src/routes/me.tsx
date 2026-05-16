@@ -22,7 +22,7 @@ import { useMemo } from "react";
 export const Route = createFileRoute("/me")({
   head: () => ({
     meta: [
-      { title: "Me — Yours" },
+      { title: "Me — FRISBEE" },
       { name: "description", content: "Vocabulary evolution, hypothesis confidence, export and wipe." },
     ],
   }),
@@ -56,7 +56,7 @@ function MePage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `yours-vault-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `frisbee-vault-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -98,7 +98,7 @@ function MePage() {
 
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12">
-      <h1 className="sr-only">Yours — Me</h1>
+      <h1 className="sr-only">FRISBEE — Me</h1>
       <DeviceShell label="BIP-01 // ME" status="VAULT">
         <div className="flex items-center gap-4 mb-5">
           <Mascot size={72} />

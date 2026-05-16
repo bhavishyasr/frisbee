@@ -10,7 +10,7 @@ import { CLUSTERS } from "@/lib/frisbee/types";
 export const Route = createFileRoute("/mirror")({
   head: () => ({
     meta: [
-      { title: "Mirror — Yours" },
+      { title: "Mirror — FRISBEE" },
       { name: "description", content: "One true thing surfaced. Screenshot-worthy." },
     ],
   }),
@@ -37,7 +37,7 @@ function MirrorPage() {
 
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12 flex flex-col items-center">
-      <h1 className="sr-only">Yours — Mirror</h1>
+      <h1 className="sr-only">FRISBEE — Mirror</h1>
       {/* The screenshot card. 9:16-ish. */}
       <article
         className="w-full max-w-[360px] aspect-[9/16] rounded-[2rem] bg-screen-ink text-screen p-7 relative overflow-hidden device-bevel"
@@ -50,7 +50,7 @@ function MirrorPage() {
           <span className="font-mono text-[10px] font-bold tracking-widest bg-screen/10 rounded px-2 py-1">
             INSIGHT · {count.toString().padStart(3, "0")}
           </span>
-          <span className="font-display italic font-black text-action text-sm">YOURS</span>
+          <span className="font-display italic font-black text-action text-sm">FRISBEE</span>
         </header>
 
         <div className="absolute top-20 right-6">

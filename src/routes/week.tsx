@@ -15,7 +15,7 @@ import { VOICE, pick } from "@/lib/buddy/voice";
 export const Route = createFileRoute("/week")({
   head: () => ({
     meta: [
-      { title: "Week — Yours" },
+      { title: "Week — FRISBEE" },
       { name: "description", content: "You vs the buddy. Predict your week before the model unmasks." },
     ],
   }),
@@ -83,7 +83,7 @@ function WeekPage() {
 
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12">
-      <h1 className="sr-only">Yours — Week</h1>
+      <h1 className="sr-only">FRISBEE — Week</h1>
       <DeviceShell label="BIP-01 // DUEL" status={stage === "suspense" ? "REVEALING" : "SYNCING"}>
         {stage === "loading" && <p className="font-mono text-screen-ink">loading...</p>}
 

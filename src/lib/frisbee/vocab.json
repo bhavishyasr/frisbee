@@ -1,5 +1,5 @@
 {
-  "_comment": "Yours — hand-crafted vocab. 4 semantic clusters. bg_df calibrated to N_BG=500. Apostrophe forms intentional (tokenizer preserves them).",
+  "_comment": "FRISBEE — hand-crafted vocab. 4 semantic clusters. bg_df calibrated to N_BG=500. Apostrophe forms intentional (tokenizer preserves them).",
   "drift": [
     "procrastinated", "scrolled", "wasted", "avoided", "slacked", "stalled",
     "doomscrolled", "tiktok", "youtube", "instagram", "reddit", "twitter",

@@ -66,8 +66,8 @@ bunx wrangler dev
 - TanStack Start (file-based routing in `src/routes/`)
 - Vite 7 + React 19
 - Tailwind CSS v4 (tokens in `src/styles.css`)
-- IndexedDB via `idb` (vault layer in `src/lib/yours/vault.ts`)
-- Pure-TS engine in `src/lib/yours/` — no external ML deps
+- IndexedDB via `idb` (vault layer in `src/lib/frisbee/vault.ts`)
+- Pure-TS engine in `src/lib/frisbee/` — no external ML deps
 
 ## Where things live
 

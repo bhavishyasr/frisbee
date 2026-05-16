@@ -11,7 +11,7 @@ import type { PersonalCorpus } from "@/lib/frisbee/features";
 export const Route = createFileRoute("/lab")({
   head: () => ({
     meta: [
-      { title: "Lab — Yours" },
+      { title: "Lab — FRISBEE" },
       { name: "description", content: "The math, live. Five panels you can poke." },
     ],
   }),
@@ -52,7 +52,7 @@ function LabPage() {
 
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12">
-      <h1 className="sr-only">Yours — Lab</h1>
+      <h1 className="sr-only">FRISBEE — Lab</h1>
       <DeviceShell label="BIP-01 // LAB" status="WHITEBOARD">
         <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/70 mb-2">
           poke a sample message
