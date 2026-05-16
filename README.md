@@ -75,7 +75,7 @@ bunx wrangler dev
 src/
   routes/             # / week / mirror / lab / me
   components/         # DeviceShell, Mascot, DeviceNav
-  lib/yours/
+  lib/frisbee/
     tokenize.ts       # apostrophe-preserving tokenizer
     features.ts       # blended-IDF, 4-cluster scoring
     model.ts          # logistic regression w/ L2
