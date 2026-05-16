@@ -2,16 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { DeviceShell } from "@/components/DeviceShell";
 import { DeviceNav } from "@/components/DeviceNav";
-import { extractFeatures } from "@/lib/yours/features";
-import { predict, sigmoid, bce, ETA, LAMBDA } from "@/lib/yours/model";
-import { getCorpus, getModel, allMessages, allWeeks } from "@/lib/yours/vault";
-import type { ModelState } from "@/lib/yours/types";
-import type { PersonalCorpus } from "@/lib/yours/features";
+import { extractFeatures } from "@/lib/frisbee/features";
+import { predict, sigmoid, bce, ETA, LAMBDA } from "@/lib/frisbee/model";
+import { getCorpus, getModel, allMessages, allWeeks } from "@/lib/frisbee/vault";
+import type { ModelState } from "@/lib/frisbee/types";
+import type { PersonalCorpus } from "@/lib/frisbee/features";
 
 export const Route = createFileRoute("/lab")({
   head: () => ({
     meta: [
-      { title: "Lab — Yours" },
+      { title: "Lab — FRISBEE" },
       { name: "description", content: "The math, live. Five panels you can poke." },
     ],
   }),
@@ -52,7 +52,7 @@ function LabPage() {
 
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12">
-      <h1 className="sr-only">Yours — Lab</h1>
+      <h1 className="sr-only">FRISBEE — Lab</h1>
       <DeviceShell label="BIP-01 // LAB" status="WHITEBOARD">
         <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/70 mb-2">
           poke a sample message

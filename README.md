@@ -66,8 +66,8 @@ bunx wrangler dev
 - TanStack Start (file-based routing in `src/routes/`)
 - Vite 7 + React 19
 - Tailwind CSS v4 (tokens in `src/styles.css`)
-- IndexedDB via `idb` (vault layer in `src/lib/yours/vault.ts`)
-- Pure-TS engine in `src/lib/yours/` — no external ML deps
+- IndexedDB via `idb` (vault layer in `src/lib/frisbee/vault.ts`)
+- Pure-TS engine in `src/lib/frisbee/` — no external ML deps
 
 ## Where things live
 
@@ -75,7 +75,7 @@ bunx wrangler dev
 src/
   routes/             # / week / mirror / lab / me
   components/         # DeviceShell, Mascot, DeviceNav
-  lib/yours/
+  lib/frisbee/
     tokenize.ts       # apostrophe-preserving tokenizer
     features.ts       # blended-IDF, 4-cluster scoring
     model.ts          # logistic regression w/ L2

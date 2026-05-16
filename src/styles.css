@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Yours — design tokens.
+ * FRISBEE — design tokens.
  * Pocket-pet industrial: chunky plastic device, LCD screen, KACHOW amber action.
  * 2010s skeuomorphism with restraint. Friend-built warmth, not corporate.
  */
@@ -40,7 +40,7 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  /* Yours-specific */
+  /* FRISBEE-specific */
   --color-device: var(--device);
   --color-device-shadow: var(--device-shadow);
   --color-device-rim: var(--device-rim);

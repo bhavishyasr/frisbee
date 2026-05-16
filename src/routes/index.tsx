@@ -3,9 +3,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { DeviceShell } from "@/components/DeviceShell";
 import { DeviceNav } from "@/components/DeviceNav";
 import { Mascot } from "@/components/Mascot";
-import { submitMessage, weekStartOf } from "@/lib/yours/engine";
-import { allMessages } from "@/lib/yours/vault";
-import type { MessageRow } from "@/lib/yours/types";
+import { submitMessage, weekStartOf } from "@/lib/frisbee/engine";
+import { allMessages } from "@/lib/frisbee/vault";
+import type { MessageRow } from "@/lib/frisbee/types";
 import { emit } from "@/lib/buddy/bus";
 import { reactToFirstMessage, reactToMessage } from "@/lib/buddy/brain";
 import { VOICE, pick } from "@/lib/buddy/voice";
@@ -13,7 +13,7 @@ import { VOICE, pick } from "@/lib/buddy/voice";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Today — Yours" },
+      { title: "Today — FRISBEE" },
       { name: "description", content: "One free-form message. The model listens." },
     ],
   }),
@@ -63,7 +63,7 @@ function TodayPage() {
 
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12">
-      <h1 className="sr-only">Yours — Today</h1>
+      <h1 className="sr-only">FRISBEE — Today</h1>
       <DeviceShell label="BIP-01 // TODAY" status="LISTENING">
         <div className="flex items-start justify-between gap-4 mb-5">
           <Mascot size={84} />

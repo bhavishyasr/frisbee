@@ -5,7 +5,7 @@
 import { create } from "zustand";
 import { on, type BuddyEvent } from "./bus";
 import { VOICE, pick, timeOfDayGreeting } from "./voice";
-import type { Cluster } from "@/lib/yours/types";
+import type { Cluster } from "@/lib/frisbee/types";
 
 export type Mood = "neutral" | "proud" | "sheepish" | "kachow" | "thinking" | "smug" | "sleepy" | "curious";
 

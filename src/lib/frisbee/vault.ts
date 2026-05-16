@@ -12,10 +12,10 @@ import type {
 import { freshModel } from "./model";
 import { EMPTY_PERSONAL, type PersonalCorpus } from "./features";
 
-const DB_NAME = "yours-vault";
+const DB_NAME = "frisbee-vault";
 const DB_VERSION = 1;
 
-interface YoursSchema extends DBSchema {
+interface FrisbeeSchema extends DBSchema {
   messages: {
     key: number;
     value: MessageRow;
@@ -29,14 +29,14 @@ interface YoursSchema extends DBSchema {
   meta: { key: string; value: { id: string; value: unknown } };
 }
 
-let dbPromise: Promise<IDBPDatabase<YoursSchema>> | null = null;
+let dbPromise: Promise<IDBPDatabase<FrisbeeSchema>> | null = null;
 
 function getDB() {
   if (typeof indexedDB === "undefined") {
     throw new Error("IndexedDB unavailable (server context)");
   }
   if (!dbPromise) {
-    dbPromise = openDB<YoursSchema>(DB_NAME, DB_VERSION, {
+    dbPromise = openDB<FrisbeeSchema>(DB_NAME, DB_VERSION, {
       upgrade(db) {
         const msgs = db.createObjectStore("messages", {
           keyPath: "id",
