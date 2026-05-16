@@ -13,9 +13,9 @@ import {
   deleteHypothesis,
   wipeAll,
   addVocab,
-} from "@/lib/yours/vault";
-import { confidence, wordDeltas } from "@/lib/yours/scientist";
-import type { Hypothesis, MessageRow, VocabAddition, WeekRow } from "@/lib/yours/types";
+} from "@/lib/frisbee/vault";
+import { confidence, wordDeltas } from "@/lib/frisbee/scientist";
+import type { Hypothesis, MessageRow, VocabAddition, WeekRow } from "@/lib/frisbee/types";
 import { emit } from "@/lib/buddy/bus";
 import { useMemo } from "react";
 

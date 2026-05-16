@@ -2,11 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { DeviceShell } from "@/components/DeviceShell";
 import { DeviceNav } from "@/components/DeviceNav";
-import { extractFeatures } from "@/lib/yours/features";
-import { predict, sigmoid, bce, ETA, LAMBDA } from "@/lib/yours/model";
-import { getCorpus, getModel, allMessages, allWeeks } from "@/lib/yours/vault";
-import type { ModelState } from "@/lib/yours/types";
-import type { PersonalCorpus } from "@/lib/yours/features";
+import { extractFeatures } from "@/lib/frisbee/features";
+import { predict, sigmoid, bce, ETA, LAMBDA } from "@/lib/frisbee/model";
+import { getCorpus, getModel, allMessages, allWeeks } from "@/lib/frisbee/vault";
+import type { ModelState } from "@/lib/frisbee/types";
+import type { PersonalCorpus } from "@/lib/frisbee/features";
 
 export const Route = createFileRoute("/lab")({
   head: () => ({

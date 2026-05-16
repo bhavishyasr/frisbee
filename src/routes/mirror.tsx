@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { DeviceNav } from "@/components/DeviceNav";
 import { Mascot } from "@/components/Mascot";
-import { allMessages, allWeeks, getModel } from "@/lib/yours/vault";
-import { wordDeltas } from "@/lib/yours/scientist";
-import type { MessageRow, ModelState, WeekRow } from "@/lib/yours/types";
-import { CLUSTERS } from "@/lib/yours/types";
+import { allMessages, allWeeks, getModel } from "@/lib/frisbee/vault";
+import { wordDeltas } from "@/lib/frisbee/scientist";
+import type { MessageRow, ModelState, WeekRow } from "@/lib/frisbee/types";
+import { CLUSTERS } from "@/lib/frisbee/types";
 
 export const Route = createFileRoute("/mirror")({
   head: () => ({
