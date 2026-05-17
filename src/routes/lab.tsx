@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { DeviceShell } from "@/components/DeviceShell";
 import { DeviceNav } from "@/components/DeviceNav";
 import { annotateTokens, extractFeatures } from "@/lib/frisbee/features";
-import { predict, sigmoid, bce, ETA, LAMBDA } from "@/lib/frisbee/model";
+import { sigmoid, bce, ETA, LAMBDA } from "@/lib/frisbee/model";
 import { getCorpus, getModel, allWeeks } from "@/lib/frisbee/vault";
 import type { ModelState, Cluster } from "@/lib/frisbee/types";
 import { CLUSTERS } from "@/lib/frisbee/types";
