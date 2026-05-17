@@ -196,8 +196,9 @@ function TodayPage() {
           <button
             onClick={() => void onSubmit()}
             disabled={busy || !text.trim()}
-            className="press-key bg-action text-screen-ink rounded-xl px-6 py-3 font-display font-black tracking-wider shadow-[0_5px_0_var(--color-action-shadow)] disabled:opacity-40 disabled:translate-y-0"
+            className="press-key relative bg-action text-screen-ink rounded-xl px-6 py-3 font-display font-black tracking-wider shadow-[0_5px_0_var(--color-action-shadow)] disabled:opacity-40 disabled:translate-y-0"
           >
+            <SparkleBurst trigger={burst} />
             {busy ? "READING..." : "FEED IT"}
           </button>
         </div>
