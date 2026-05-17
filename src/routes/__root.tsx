@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { useEffect } from "react";
 import { wireBuddy } from "@/lib/buddy/brain";
+import { wireFx } from "@/lib/buddy/fx";
 import { emit } from "@/lib/buddy/bus";
 
 function NotFoundComponent() {
@@ -114,9 +115,10 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   useEffect(() => {
-    const dispose = wireBuddy();
+    const disposeBuddy = wireBuddy();
+    const disposeFx = wireFx();
     emit({ type: "boot" });
-    return dispose;
+    return () => { disposeBuddy(); disposeFx(); };
   }, []);
 
   return (
