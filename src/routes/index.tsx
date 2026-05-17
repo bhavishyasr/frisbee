@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { DeviceShell } from "@/components/DeviceShell";
 import { DeviceNav } from "@/components/DeviceNav";
 import { Mascot } from "@/components/Mascot";
+import { SparkleBurst } from "@/components/SparkleBurst";
 import { submitMessage, weekStartOf } from "@/lib/frisbee/engine";
 import { allMessages, getCorpus, getModel } from "@/lib/frisbee/vault";
 import { extractFeatures, type PersonalCorpus, EMPTY_PERSONAL } from "@/lib/frisbee/features";
@@ -29,6 +30,7 @@ const ZERO_X: [number, number, number, number] = [0, 0, 0, 0];
 function TodayPage() {
   const [text, setText] = useState("");
   const [last, setLast] = useState<{ p: number; x: [number, number, number, number] } | null>(null);
+  const [burst, setBurst] = useState(0);
   const [liveX, setLiveX] = useState<[number, number, number, number]>(ZERO_X);
   const [liveP, setLiveP] = useState<number | null>(null);
   const [allMsgs, setAllMsgs] = useState<MessageRow[]>([]);
