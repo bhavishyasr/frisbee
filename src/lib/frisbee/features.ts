@@ -44,6 +44,12 @@ const CLUSTER_LOOKUP: Map<string, Set<Cluster>> = (() => {
   return m;
 })();
 
+// Read-only annotator for visualization. Does NOT affect engine math.
+export function annotateTokens(text: string): Array<{ token: string; clusters: Cluster[] }> {
+  const toks = tokenize(text);
+  return toks.map((t) => ({ token: t, clusters: Array.from(CLUSTER_LOOKUP.get(t) ?? []) }));
+}
+
 export function idfPersonal(word: string, personal: PersonalCorpus): number {
   const df = personal.df[word] ?? 0;
   return Math.log((personal.N + 1) / (df + 1)) + 1;
