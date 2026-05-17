@@ -89,6 +89,7 @@ function TodayPage() {
       const isFirstEver = allMsgs.length === 0;
       const r = await submitMessage(text.trim());
       setLast({ p: r.p, x: r.x as [number, number, number, number] });
+      setBurst(Date.now());
       emit({ type: "message:dropped", text: text.trim(), isFirstEver });
       if (isFirstEver) reactToFirstMessage(r.x as [number, number, number, number]);
       else reactToMessage(r.x as [number, number, number, number]);
