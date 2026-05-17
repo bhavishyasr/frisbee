@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { DeviceShell } from "@/components/DeviceShell";
 import { DeviceNav } from "@/components/DeviceNav";
 import { Mascot } from "@/components/Mascot";
+import { SparkleBurst } from "@/components/SparkleBurst";
 import { submitMessage, weekStartOf } from "@/lib/frisbee/engine";
 import { allMessages, getCorpus, getModel } from "@/lib/frisbee/vault";
 import { extractFeatures, type PersonalCorpus, EMPTY_PERSONAL } from "@/lib/frisbee/features";
@@ -29,6 +30,7 @@ const ZERO_X: [number, number, number, number] = [0, 0, 0, 0];
 function TodayPage() {
   const [text, setText] = useState("");
   const [last, setLast] = useState<{ p: number; x: [number, number, number, number] } | null>(null);
+  const [burst, setBurst] = useState(0);
   const [liveX, setLiveX] = useState<[number, number, number, number]>(ZERO_X);
   const [liveP, setLiveP] = useState<number | null>(null);
   const [allMsgs, setAllMsgs] = useState<MessageRow[]>([]);
@@ -87,6 +89,7 @@ function TodayPage() {
       const isFirstEver = allMsgs.length === 0;
       const r = await submitMessage(text.trim());
       setLast({ p: r.p, x: r.x as [number, number, number, number] });
+      setBurst(Date.now());
       emit({ type: "message:dropped", text: text.trim(), isFirstEver });
       if (isFirstEver) reactToFirstMessage(r.x as [number, number, number, number]);
       else reactToMessage(r.x as [number, number, number, number]);
@@ -193,8 +196,9 @@ function TodayPage() {
           <button
             onClick={() => void onSubmit()}
             disabled={busy || !text.trim()}
-            className="press-key bg-action text-screen-ink rounded-xl px-6 py-3 font-display font-black tracking-wider shadow-[0_5px_0_var(--color-action-shadow)] disabled:opacity-40 disabled:translate-y-0"
+            className="press-key relative bg-action text-screen-ink rounded-xl px-6 py-3 font-display font-black tracking-wider shadow-[0_5px_0_var(--color-action-shadow)] disabled:opacity-40 disabled:translate-y-0"
           >
+            <SparkleBurst trigger={burst} />
             {busy ? "READING..." : "FEED IT"}
           </button>
         </div>

@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import { emit } from "@/lib/buddy/bus";
 
 const TABS = [
   { to: "/", label: "TODAY" },
@@ -19,6 +20,7 @@ export function DeviceNav() {
           <Link
             key={t.to}
             to={t.to}
+            onClick={() => { if (!active) emit({ type: "nav:visited", route: t.to }); }}
             className={cn(
               "press-key rounded-xl text-center py-3 sm:py-4 font-mono text-[11px] sm:text-xs font-bold tracking-widest transition-colors",
               active
