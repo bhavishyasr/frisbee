@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { setMuted, isMuted } from "@/lib/buddy/fx";
 
 /**
  * The chunky plastic shell. Wraps every screen so the whole app feels like
@@ -16,6 +17,12 @@ export function DeviceShell({
   label?: string;
   status?: string;
 }) {
+  const [muted, setMutedState] = useState(isMuted());
+  const toggleMute = () => {
+    const next = !muted;
+    setMuted(next);
+    setMutedState(next);
+  };
   return (
     <div className={cn("w-full max-w-2xl mx-auto", className)}>
       <div className="device-bevel rounded-[2.5rem] bg-device p-6 sm:p-8 relative">
@@ -27,7 +34,15 @@ export function DeviceShell({
               {label}
             </span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={toggleMute}
+              aria-label={muted ? "unmute sounds" : "mute sounds"}
+              className="text-[11px] font-mono text-white/70 hover:text-white transition-colors active:scale-95"
+            >
+              {muted ? "🔇" : "🔊"}
+            </button>
             <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/70">
               {status}
             </span>
