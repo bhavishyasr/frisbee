@@ -220,6 +220,16 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.97; }
 }
+@keyframes sparkle-fly {
+  0%   { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx, 0)), calc(-50% + var(--dy, 0))) scale(0); opacity: 0; }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
+}
 .animate-blink { animation: blink-eyes 4.2s ease-in-out infinite; transform-origin: center; }
 .animate-kachow { animation: kachow-flash 1.4s ease-out forwards; }
 .animate-flicker { animation: screen-flicker 0.18s ease-in-out infinite; }
+.animate-wiggle { animation: wiggle 400ms ease-in-out; }
