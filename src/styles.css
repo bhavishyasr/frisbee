@@ -113,27 +113,55 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
+/*
+ * Dark mode — ARCADE NIGHT.
+ * Not a polite inversion. The device becomes a deep-indigo cyberdeck,
+ * the LCD goes phosphor-green backlit, action button glows hot magenta.
+ */
 .dark {
-  --background: oklch(0.18 0.02 250);
+  --background: oklch(0.16 0.04 280);
   --foreground: oklch(0.96 0.01 85);
-  --card: oklch(0.22 0.025 250);
+  --card: oklch(0.22 0.05 280);
   --card-foreground: oklch(0.96 0.01 85);
-  --popover: oklch(0.22 0.025 250);
+  --popover: oklch(0.22 0.05 280);
   --popover-foreground: oklch(0.96 0.01 85);
-  --primary: oklch(0.7 0.16 235);
-  --primary-foreground: oklch(0.18 0.02 250);
-  --secondary: oklch(0.28 0.03 250);
+  --primary: oklch(0.78 0.18 300);
+  --primary-foreground: oklch(0.16 0.04 280);
+  --secondary: oklch(0.28 0.05 280);
   --secondary-foreground: oklch(0.96 0.01 85);
-  --muted: oklch(0.28 0.03 250);
-  --muted-foreground: oklch(0.7 0.02 85);
-  --accent: oklch(0.32 0.05 235);
+  --muted: oklch(0.28 0.05 280);
+  --muted-foreground: oklch(0.72 0.04 280);
+  --accent: oklch(0.32 0.08 300);
   --accent-foreground: oklch(0.96 0.01 85);
-  --destructive: oklch(0.65 0.2 27);
+  --destructive: oklch(0.68 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.7 0.16 235);
+  --ring: oklch(0.78 0.18 300);
+
+  /* the device — deep indigo plastic with neon rim */
+  --device: oklch(0.32 0.13 285);
+  --device-shadow: oklch(0.18 0.09 285);
+  --device-rim: oklch(0.55 0.18 300);
+
+  /* the LCD — phosphor backlit screen */
+  --screen: oklch(0.24 0.08 165);
+  --screen-ink: oklch(0.92 0.18 145);
+  --screen-dim: oklch(0.68 0.12 150);
+
+  /* KACHOW — hot magenta neon */
+  --action: oklch(0.72 0.26 340);
+  --action-shadow: oklch(0.45 0.22 340);
+
+  --tape: oklch(0.78 0.15 320 / 0.5);
+
+  --chart-1: oklch(0.78 0.18 300);
+  --chart-2: oklch(0.72 0.26 340);
+  --chart-3: oklch(0.82 0.2 145);
+  --chart-4: oklch(0.7 0.22 27);
+  --chart-5: oklch(0.75 0.18 215);
 }
+
 
 @layer base {
   * {
@@ -150,6 +178,16 @@
       radial-gradient(circle at 88% 92%, oklch(0.93 0.04 235 / 0.5) 0, transparent 40%);
     min-height: 100vh;
   }
+  .dark body {
+    background-image:
+      radial-gradient(circle at 12% 8%, oklch(0.35 0.22 320 / 0.35) 0, transparent 40%),
+      radial-gradient(circle at 88% 92%, oklch(0.4 0.2 200 / 0.3) 0, transparent 45%),
+      radial-gradient(circle at 50% 50%, oklch(0.22 0.08 280) 0, oklch(0.14 0.04 280) 70%);
+  }
+  .dark .lcd-glow {
+    text-shadow: 0 0 8px oklch(0.85 0.2 145 / 0.7);
+  }
+
 }
 
 /* Skeuomorphic helpers */

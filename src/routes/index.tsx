@@ -37,6 +37,10 @@ function TodayPage() {
   const [corpus, setCorpus] = useState<PersonalCorpus>(EMPTY_PERSONAL);
   const [model, setModel] = useState<ModelState | null>(null);
   const [busy, setBusy] = useState(false);
+  const [today, setToday] = useState<string | null>(null);
+  useEffect(() => {
+    setToday(new Date().toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" }));
+  }, []);
   const taRef = useRef<HTMLTextAreaElement>(null);
   const setStoreMood = useBuddy((s) => s.setMood);
   const placeholder = useMemo(() => pick(VOICE.empty_input), []);
@@ -115,7 +119,7 @@ function TodayPage() {
         <div className="flex items-start justify-between gap-4 mb-5">
           <Mascot size={84} />
           <div className="text-right font-mono text-[10px] text-screen-ink/70 uppercase">
-            <p>{new Date().toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" })}</p>
+            <p suppressHydrationWarning>{today ?? "\u00A0"}</p>
             <p className="mt-1">today: {todayMsgs.length} msg{todayMsgs.length === 1 ? "" : "s"}</p>
             {model && (
               <p className="mt-1 normal-case tracking-normal text-screen-ink/50">
