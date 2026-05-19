@@ -37,6 +37,10 @@ function TodayPage() {
   const [corpus, setCorpus] = useState<PersonalCorpus>(EMPTY_PERSONAL);
   const [model, setModel] = useState<ModelState | null>(null);
   const [busy, setBusy] = useState(false);
+  const [today, setToday] = useState<string | null>(null);
+  useEffect(() => {
+    setToday(new Date().toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" }));
+  }, []);
   const taRef = useRef<HTMLTextAreaElement>(null);
   const setStoreMood = useBuddy((s) => s.setMood);
   const placeholder = useMemo(() => pick(VOICE.empty_input), []);
