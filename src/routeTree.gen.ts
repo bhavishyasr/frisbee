@@ -13,6 +13,7 @@ import { Route as WeekRouteImport } from './routes/week'
 import { Route as MirrorRouteImport } from './routes/mirror'
 import { Route as MeRouteImport } from './routes/me'
 import { Route as LabRouteImport } from './routes/lab'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WeekRoute = WeekRouteImport.update({
@@ -35,6 +36,11 @@ const LabRoute = LabRouteImport.update({
   path: '/lab',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +49,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/lab': typeof LabRoute
   '/me': typeof MeRoute
   '/mirror': typeof MirrorRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/lab': typeof LabRoute
   '/me': typeof MeRoute
   '/mirror': typeof MirrorRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/lab': typeof LabRoute
   '/me': typeof MeRoute
   '/mirror': typeof MirrorRoute
@@ -65,14 +74,15 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/lab' | '/me' | '/mirror' | '/week'
+  fullPaths: '/' | '/about' | '/lab' | '/me' | '/mirror' | '/week'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/lab' | '/me' | '/mirror' | '/week'
-  id: '__root__' | '/' | '/lab' | '/me' | '/mirror' | '/week'
+  to: '/' | '/about' | '/lab' | '/me' | '/mirror' | '/week'
+  id: '__root__' | '/' | '/about' | '/lab' | '/me' | '/mirror' | '/week'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   LabRoute: typeof LabRoute
   MeRoute: typeof MeRoute
   MirrorRoute: typeof MirrorRoute
@@ -109,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -121,6 +138,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   LabRoute: LabRoute,
   MeRoute: MeRoute,
   MirrorRoute: MirrorRoute,
@@ -129,13 +147,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
