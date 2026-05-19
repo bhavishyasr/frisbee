@@ -232,7 +232,8 @@ function TodayPage() {
 
       <p className="text-center text-xs font-mono text-muted-foreground max-w-md mx-auto">
         FRISBEE learns YOUR words from your own messages. Nothing leaves this browser.{" "}
-        <Link to="/lab" className="underline">See the math</Link>.
+        <Link to="/lab" className="underline">See the math</Link> ·{" "}
+        <Link to="/about" className="underline">What on earth is this?</Link>
       </p>
     </main>
   );
