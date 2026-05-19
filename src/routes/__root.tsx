@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { wireBuddy } from "@/lib/buddy/brain";
 import { wireFx } from "@/lib/buddy/fx";
 import { emit } from "@/lib/buddy/bus";
+import { CraftedBy } from "@/components/CraftedBy";
 
 function NotFoundComponent() {
   return (
