@@ -11,12 +11,7 @@ export function CraftedBy() {
       >
         ♥
       </span>
-      <span>by</span>
-      <span className="font-bold text-foreground normal-case tracking-normal text-xs">
-        Bhavishya Srivastava
-      </span>
-      <span aria-hidden className="text-foreground/30">·</span>
-      <span className="normal-case tracking-normal">player 1</span>
+      <span>by Bhavishya Srivastava</span>
     </div>
   );
 }
