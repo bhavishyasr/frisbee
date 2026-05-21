@@ -130,7 +130,7 @@ function LabPage() {
           ))}
         </div>
 
-        <div className="mt-4 space-y-3">
+        <div className="mt-4 space-y-3 lg:space-y-0 lg:[column-count:2] lg:[column-gap:0.75rem] [&>*]:break-inside-avoid lg:[&>*]:mb-3">
           {/* STEP 1 — Tokens colored by cluster */}
           <Panel
             n={1}
