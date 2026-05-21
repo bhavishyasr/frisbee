@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { setMuted, isMuted } from "@/lib/buddy/fx";
-import { ThemeToggle } from "@/components/ThemeToggle";
+
 
 
 /**
@@ -37,7 +37,7 @@ export function DeviceShell({
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <ThemeToggle />
+
             <button
               type="button"
               onClick={toggleMute}

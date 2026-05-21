@@ -32,10 +32,14 @@ export function CraftedBy() {
         <span
           key={pop}
           className="text-base leading-none animate-wiggle"
-          style={{ filter: "drop-shadow(0 0 4px oklch(0.7 0.22 25 / 0.6))" }}
+          style={{
+            color: "oklch(0.68 0.19 145)",
+            filter: "drop-shadow(0 1px 0 oklch(0.45 0.14 145)) drop-shadow(0 0 6px oklch(0.78 0.2 145 / 0.55))",
+          }}
         >
           ♥
         </span>
+
         {tier && (
           <span
             key={"t" + pop}
