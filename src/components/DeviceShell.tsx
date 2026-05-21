@@ -37,7 +37,7 @@ export function DeviceShell({
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <ThemeToggle />
+
             <button
               type="button"
               onClick={toggleMute}
