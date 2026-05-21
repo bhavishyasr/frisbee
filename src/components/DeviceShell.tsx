@@ -13,11 +13,14 @@ export function DeviceShell({
   className,
   label = "BIP-01",
   status = "LIVE",
+  wide = false,
 }: {
   children: ReactNode;
   className?: string;
   label?: string;
   status?: string;
+  /** wider landscape shell for content-heavy pages (lab, about) */
+  wide?: boolean;
 }) {
   const [muted, setMutedState] = useState(isMuted());
   const toggleMute = () => {
@@ -26,7 +29,8 @@ export function DeviceShell({
     setMutedState(next);
   };
   return (
-    <div className={cn("w-full max-w-2xl mx-auto", className)}>
+    <div className={cn("w-full mx-auto", wide ? "max-w-2xl lg:max-w-6xl" : "max-w-2xl", className)}>
+
       <div className="device-bevel rounded-[2.5rem] bg-device p-6 sm:p-8 relative">
         {/* Brand strip */}
         <div className="flex items-center justify-between mb-5 px-1">
