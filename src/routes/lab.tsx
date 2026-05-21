@@ -84,7 +84,8 @@ function LabPage() {
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12">
       <h1 className="sr-only">FRISBEE — Lab</h1>
-      <DeviceShell label="BIP-01 // LAB" status="WHITEBOARD">
+      <DeviceShell wide label="BIP-01 // LAB" status="WHITEBOARD">
+
         <p className="font-display font-bold text-screen-ink text-lg leading-snug">
           How the model thinks, one step at a time.
         </p>
