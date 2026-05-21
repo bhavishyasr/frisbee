@@ -84,7 +84,8 @@ function LabPage() {
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12">
       <h1 className="sr-only">FRISBEE — Lab</h1>
-      <DeviceShell label="BIP-01 // LAB" status="WHITEBOARD">
+      <DeviceShell wide label="BIP-01 // LAB" status="WHITEBOARD">
+
         <p className="font-display font-bold text-screen-ink text-lg leading-snug">
           How the model thinks, one step at a time.
         </p>
@@ -129,7 +130,7 @@ function LabPage() {
           ))}
         </div>
 
-        <div className="mt-4 space-y-3">
+        <div className="mt-4 space-y-3 lg:space-y-0 lg:[column-count:2] lg:[column-gap:0.75rem] [&>*]:break-inside-avoid lg:[&>*]:mb-3">
           {/* STEP 1 — Tokens colored by cluster */}
           <Panel
             n={1}

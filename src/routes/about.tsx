@@ -18,7 +18,7 @@ function AboutPage() {
     <main className="min-h-screen px-4 py-8 sm:py-12">
       <h1 className="sr-only">What on earth is FRISBEE</h1>
 
-      <DeviceShell label="BIP-01 // ABOUT" status="EXPLAINING">
+      <DeviceShell wide label="BIP-01 // ABOUT" status="EXPLAINING">
         <div className="flex items-start justify-between gap-4 mb-5">
           <Mascot size={84} />
           <div className="text-right font-mono text-[10px] text-screen-ink/70 uppercase">
@@ -27,8 +27,8 @@ function AboutPage() {
           </div>
         </div>
 
-        <section className="space-y-6 text-screen-ink">
-          <div>
+        <section className="text-screen-ink lg:grid lg:grid-cols-2 lg:gap-x-10 lg:gap-y-7 space-y-6 lg:space-y-0">
+          <div className="lg:col-span-2">
             <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/60 mb-2">
               ▶ the elevator pitch
             </p>
@@ -54,9 +54,22 @@ function AboutPage() {
 
           <div>
             <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/60 mb-2">
+              ▶ the boring honest part
+            </p>
+            <p className="text-base leading-relaxed text-screen-ink/85">
+              Everything lives in your browser's local storage (IndexedDB, if you're
+              nerdy). No account. No server. No cloud. Close the tab → it's still
+              there. Clear your browser data → it's gone forever. There is no
+              "forgot password" because there's no password. There's no you on
+              our side because there's no us.
+            </p>
+          </div>
+
+          <div className="lg:col-span-2">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/60 mb-2">
               ▶ the five rooms
             </p>
-            <ul className="space-y-3">
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               <Room to="/" name="TODAY">
                 Type whatever. The bars under the box twitch live as you write — that's
                 the device reading your vibes in four flavors: <b>drift</b>, <b>align</b>,
@@ -81,20 +94,7 @@ function AboutPage() {
             </ul>
           </div>
 
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/60 mb-2">
-              ▶ the boring honest part
-            </p>
-            <p className="text-base leading-relaxed text-screen-ink/85">
-              Everything lives in your browser's local storage (IndexedDB, if you're
-              nerdy). No account. No server. No cloud. Close the tab → it's still
-              there. Clear your browser data → it's gone forever. There is no
-              "forgot password" because there's no password. There's no you on
-              our side because there's no us.
-            </p>
-          </div>
-
-          <div>
+          <div className="lg:col-span-2">
             <p className="font-mono text-[10px] uppercase tracking-widest text-screen-ink/60 mb-2">
               ▶ how to actually play
             </p>
@@ -107,7 +107,7 @@ function AboutPage() {
             </ol>
           </div>
 
-          <div className="pt-2 border-t-2 border-screen-ink/10 flex flex-wrap items-center gap-3">
+          <div className="lg:col-span-2 pt-2 border-t-2 border-screen-ink/10 flex flex-wrap items-center gap-3">
             <Link
               to="/"
               className="press-key bg-action text-screen-ink rounded-xl px-5 py-3 font-display font-black tracking-wider shadow-[0_5px_0_var(--color-action-shadow)]"
@@ -123,6 +123,7 @@ function AboutPage() {
           </div>
         </section>
       </DeviceShell>
+
 
       <DeviceNav />
 
