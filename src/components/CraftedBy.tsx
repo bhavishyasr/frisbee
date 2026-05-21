@@ -1,22 +1,22 @@
 /**
- * Footer credit — quiet, not loud.
+ * Footer credit — a quiet signature, like ink in the corner of a sketch.
  */
 export function CraftedBy() {
   return (
-    <div className="mt-6 mb-10 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground select-none">
-      <span>crafted with</span>
+    <footer className="mt-10 mb-12 flex flex-col items-center gap-2 select-none">
       <span
-        className="text-base leading-none"
-        style={{ color: "oklch(0.68 0.19 145)" }}
+        aria-hidden
+        className="h-px w-10 bg-foreground/15"
+      />
+      <p
+        className="text-[11px] text-muted-foreground"
+        style={{ fontFamily: "'Instrument Serif', 'Cormorant Garamond', Georgia, serif", fontStyle: "italic" }}
       >
-        ♥
-      </span>
-      <span>by</span>
-      <span className="font-bold text-foreground normal-case tracking-normal text-xs">
-        Bhavishya Srivastava
-      </span>
-      <span aria-hidden className="text-foreground/30">·</span>
-      <span className="normal-case tracking-normal">player 1</span>
-    </div>
+        crafted by{" "}
+        <span className="text-foreground" style={{ fontStyle: "italic" }}>
+          Bhavishya Srivastava
+        </span>
+      </p>
+    </footer>
   );
 }
