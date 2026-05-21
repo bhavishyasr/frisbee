@@ -3,7 +3,7 @@
  */
 export function CraftedBy() {
   return (
-    <div className="mt-6 mb-10 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground select-none">
+    <footer className="mt-8 mb-10 flex items-center justify-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground select-none">
       <span>crafted with</span>
       <span
         className="text-base leading-none"
@@ -12,6 +12,6 @@ export function CraftedBy() {
         ♥
       </span>
       <span>by Bhavishya Srivastava</span>
-    </div>
+    </footer>
   );
 }
